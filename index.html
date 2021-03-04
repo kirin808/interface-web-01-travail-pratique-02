@@ -10,10 +10,13 @@
 	<!-- Fonts -->
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="./styles/main.css">
+	<link rel="stylesheet" href="./styles/layout.css">
 
 	<!-- Scripts -->
-	<script type="text/javascript" src="./scripts/script.js"></script>
+	<script type="text/javascript" src="./scripts/Task.js"></script>
+	<script type="text/javascript" src="./scripts/ToDoList.js"></script>
+	<script type="text/javascript" src="./scripts/Form.js"></script>
+	<script type="text/javascript" src="./scripts/init.js"></script>
 </head>
 
 <body>
@@ -22,7 +25,7 @@
 			<div data-js-form-item="fieldBlock">
 				<label for="inputNomTache">Nom de la tâche :</label>
 				<div data-js-form-item="inputWrapper">
-					<input type="text" id="inputNomTache" name="nomTache" placeholder="Nom de la tâches...">
+					<input type="text" id="inputNomTache" name="nomTache" placeholder="Nom de la tâche..." required>
 				</div>
 			</div>
 
@@ -36,13 +39,13 @@
 			<div data-js-form-item="fieldBlock">
 				<span>Importance de la tâche :</span>
 				<div data-js-form-item="inputWrapper">
-					<label><input type="text" name="importance" value="1">Futile</label>
-					<label><input type="text" name="importance" value="2">Peut-être</label>
-					<label><input type="text" name="importance" value="3">Impératif</label>
+					<label><input type="radio" name="importance" value="1" required>Futile</label>
+					<label><input type="radio" name="importance" value="2">Peut-être</label>
+					<label><input type="radio" name="importance" value="3">Impératif</label>
 				</div>
 			</div>
 
-			<button type="button">Ajouter la tâche</button>
+			<button type="button" data-js-button="addTask">Ajouter la tâche</button>
 		</form>
 	</section>
 
