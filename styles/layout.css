@@ -1,0 +1,27 @@
+/* Variables :::::::: */
+
+:root {
+	--gutter : 1.5rem;
+}
+
+/* Réinitialisations :::::::::: */
+* {
+	padding: 0;
+	margin: 0;
+
+	box-sizing: border-box;
+}
+
+*+ :is(p, hr, ul, h1, h2, h3, h4, h5, h6) {
+	margin-top: var(--gutter);
+}
+
+* + li {
+	margin-top: calc(var(--spacing-default) * 0.7); }
+
+img {
+	max-width: 100%;
+	display: block;
+
+	object-fit: cover;
+}
