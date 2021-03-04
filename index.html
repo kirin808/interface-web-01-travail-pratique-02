@@ -17,5 +17,36 @@
 </head>
 
 <body>
+	<section>
+		<form action="" name="ajoutTache">
+			<div data-js-form-item="fieldBlock">
+				<label for="inputNomTache">Nom de la tâche :</label>
+				<div data-js-form-item="inputWrapper">
+					<input type="text" id="inputNomTache" name="nomTache" placeholder="Nom de la tâches...">
+				</div>
+			</div>
+
+			<div data-js-form-item="fieldBlock">
+				<label for="inputDescTache">Description :</label>
+				<div data-js-form-item="inputWrapper">
+					<input type="text" id="inputDescTache" name="descTache" placeholder="Description de la tâche...">
+				</div>
+			</div>
+			
+			<div data-js-form-item="fieldBlock">
+				<span>Importance de la tâche :</span>
+				<div data-js-form-item="inputWrapper">
+					<label><input type="text" name="importance" value="1">Futile</label>
+					<label><input type="text" name="importance" value="2">Peut-être</label>
+					<label><input type="text" name="importance" value="3">Impératif</label>
+				</div>
+			</div>
+
+			<button type="button">Ajouter la tâche</button>
+		</form>
+	</section>
+
+	<section></section>
+	<section></section>
 </body>
 </html>
