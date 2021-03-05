@@ -8,3 +8,18 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+
+
+
+/* Gestion des erreurs */
+:-moz-ui-invalid {
+	box-shadow: none;
+}
+
+.error {
+	color: rgb(202, 16, 16);
+}
+
+.error-input {
+	box-shadow: 0 0 2px 1px rgb(185, 0, 0);
+}
