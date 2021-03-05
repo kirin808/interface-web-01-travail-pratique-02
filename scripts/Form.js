@@ -68,8 +68,6 @@ class Form {
 		 * Insérer les éléments fautifs dans un tableau afin de facilement les réinitialiser. 
 		 * Vérifier si il est déjà présent, pour ne pas le répéter (boutons radios)
 		 * 
-		 * 
-		 *
 		 */ 
 		if(!this.invalidWrappers.includes(elemWrapper)) {
 			this.invalidWrappers.push(elemWrapper);
@@ -108,13 +106,11 @@ class Form {
 	cleanErrors = () => {
 		console.log(this.invalidWrappers);
 		this.invalidWrappers.forEach((wrapper) => {
-			if(wrapper.querySelector("[data-js-form-item='errMsg']")) {
-				console.log(wrapper);
-				wrapper.querySelector("[data-js-form-item='errMsg']").remove();
+			wrapper.querySelector("[data-js-form-item='errMsg']").remove();
 
-				wrapper.classList.toggle("error");
-			}
-
+			wrapper.classList.toggle("error");
+			
+			// Gérer *tous* les boutons radios
 			if(wrapper.querySelector("input[type='radio']")) {
 				let inputs = wrapper.querySelectorAll("input");
 
