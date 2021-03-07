@@ -58,7 +58,7 @@ class Form {
 		return this.form.checkValidity();
 	}
 
-	throwError = (input) => {
+	throwError = (input, type = "validity") => {
 		let elemInput = input,
 			elemWrapper = elemInput.closest("[data-js-form-item=\"inputWrapper\"]");
 
@@ -104,6 +104,23 @@ class Form {
 	}
 
 	throwErrorDuplicateTask = () => {
+		let inputWrapper = this.form.nomTache.parentElement,
+			elemP = document.createElement("p"),
+			errorMsg = "Cette tâche existe déjà";
+		
+			if(!this.invalidWrappers.includes(elemWrapper)) {
+				this.invalidWrappers.push(elemWrapper);
+			}
+					
+			elemInput.classList.toggle("error-input");
+			elemWrapper.classList.toggle("error");
+
+		elemP.setAttribute("data-js-form-item", "errMsg");
+		elemP.textContent = errorMsg;
+
+		inputWrapper.append(elemP);
+
+		
 		
 	}
 
