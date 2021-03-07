@@ -43,7 +43,7 @@ class Form {
 	_initButtons = () => {
 		this.buttonAdd.addEventListener("click", (e) => {
 			if(this.validate()) {
-				listeToDo.addTask(this.form.nomTache.value, this.form.descTache.value, this.form.importance.value);
+				listeToDo.addTask(this, this.form.nomTache.value, this.form.descTache.value, this.form.importance.value);
 			}
 
 			this.beenValidated = true;
@@ -101,6 +101,10 @@ class Form {
 
 			elemWrapper.append(elemP);
 		}
+	}
+
+	throwErrorDuplicateTask = () => {
+		
 	}
 
 	cleanErrors = () => {
