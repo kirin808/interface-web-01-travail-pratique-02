@@ -14,70 +14,70 @@
 	<link rel="stylesheet" href="./styles/theme.css">
 
 	<!-- Scripts -->
-	<script type="text/javascript" src="./scripts/Task.js"></script>
-	<script type="text/javascript" src="./scripts/ToDoList.js"></script>
-	<script type="text/javascript" src="./scripts/Form.js"></script>
-	<script type="text/javascript" src="./scripts/init.js"></script>
+	<script src="./scripts/Task.js"></script>
+	<script src="./scripts/ToDoList.js"></script>
+	<script src="./scripts/Form.js"></script>
+	<script src="./scripts/init.js"></script>
 </head>
 
 <body>
-	<h1>Gestionnaire de tâches</h1>
-	<section>
-		<form action="" name="ajoutTache">
-			<div data-js-form-item="fieldBlock">
-				<label for="inputNomTache">Nom de la tâche :</label>
-				<div data-js-form-item="inputWrapper">
-					<input type="text" id="inputNomTache" name="nomTache" placeholder="Nom de la tâche..." required>
+	<main>
+		<h1>Gestionnaire universel de tâches</h1>
+		<section>
+			<h2>Ajouter une tâche</h2>
+			<form name="ajoutTache">
+				<div data-js-form-item="fieldBlock">
+					<label for="inputNomTache">Nom de la tâche :</label>
+					<div data-js-form-item="inputWrapper">
+						<input type="text" id="inputNomTache" name="nomTache" placeholder="Nom de la tâche..." required>
+					</div>
 				</div>
-			</div>
+				<div data-js-form-item="fieldBlock">
+					<label for="inputDescTache">Description :</label>
+					<div data-js-form-item="inputWrapper">
+						<input type="text" id="inputDescTache" name="descTache" placeholder="Description de la tâche...">
+					</div>
+				</div>
+		
+				<div data-js-form-item="fieldBlock">
+					<span>Importance de la tâche :</span>
+					<div data-js-form-item="inputWrapper">
+						<label><input type="radio" name="importance" value="1" required>Futile</label>
+						<label><input type="radio" name="importance" value="2">Peut-être</label>
+						<label><input type="radio" name="importance" value="3">Impératif</label>
+					</div>
+				</div>
+				<button type="button" data-js-button="addTask">Ajouter la tâche</button>
+			</form>
+		</section>
 
-			<div data-js-form-item="fieldBlock">
-				<label for="inputDescTache">Description :</label>
-				<div data-js-form-item="inputWrapper">
-					<input type="text" id="inputDescTache" name="descTache" placeholder="Description de la tâche...">
-				</div>
-			</div>
+		<section class="liste">
+			<h2>LA liste.</h2>
+			<ul class="todoList" data-list="todo">
+			</ul>
+		</section>
+
+		<section class="details">
+			<input class="visually-hidden arrow-toggle" type="checkbox" id="checkboxToggleDetails" data-button="toggleDetails">
+			<label class="arrow-icon" for="checkboxToggleDetails"><img src="assets/images/noun_Arrow_1920908.png" alt="icône flèche vers le bas"></label>
 			
-			<div data-js-form-item="fieldBlock">
-				<span>Importance de la tâche :</span>
-				<div data-js-form-item="inputWrapper">
-					<label><input type="radio" name="importance" value="1" required>Futile</label>
-					<label><input type="radio" name="importance" value="2">Peut-être</label>
-					<label><input type="radio" name="importance" value="3">Impératif</label>
-				</div>
-			</div>
-
-			<button type="button" data-js-button="addTask">Ajouter la tâche</button>
-		</form>
-	</section>
-
-	<section class="liste">
-		<ul class="todoList" data-list="todo">
-
-		</ul>
-	</section>
-	<section class="details">		
-		<header>
 			<h2>Détail de la tâche</h2>
-			<div>
-				<input type="checkbox" id="checkboxToggleDetails" data-button="toggleDetails">
-				<label for="checkboxToggleDetails"></label>
-			</div>
-		</header>
-		<dl data-list="taskDetails">
-			<div data-details="name">
-				<dt>Nom de la tâche : </dt>
-				<dd></dd>
-			</div>
-			<div data-details="description">
-				<dt>Description : </dt>
-				<dd></dd>
-			</div>
-			<div data-details="priority">
-				<dt>Priorité : </dt>
-				<dd></dd>
-			</div>
-		</dl>
-	</section>
+			
+			<dl data-list="taskDetails">
+				<div data-details="name">
+					<dt>Nom de la tâche : </dt>
+					<dd></dd>
+				</div>
+				<div data-details="description">
+					<dt>Description : </dt>
+					<dd></dd>
+				</div>
+				<div data-details="priority">
+					<dt>Priorité : </dt>
+					<dd></dd>
+				</div>
+			</dl>
+		</section>
+	</main>
 </body>
 </html>

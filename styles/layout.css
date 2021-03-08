@@ -25,3 +25,61 @@ img {
 
 	object-fit: cover;
 }
+
+
+main {
+	width: 60%;
+	max-width: 60ch;
+
+	
+}
+
+.details {
+	border: 2px solid black;
+}
+
+.arrow-icon {
+	float: right;
+
+	display: block;
+	transform: rotate(90deg);
+
+	transition-property: transform;
+	transition-duration: 200ms;
+	transition-timing-function: ease-in;
+}
+
+.arrow-toggle:checked ~ .arrow-icon {
+	transform: rotate(0deg);
+}
+
+
+.arrow-icon > img {
+	width: 40px;
+}
+
+.details > dl {
+	max-height: 0;
+	overflow: hidden;
+
+	transition-property: max-height;
+	transition-duration: 300ms;
+	transition-timing-function: ease-in;
+}
+
+.arrow-toggle:checked ~ dl {
+	max-height: 100px;
+}
+
+
+
+/* Utilitaires :::::::: */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+  }
