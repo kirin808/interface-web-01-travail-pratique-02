@@ -97,6 +97,7 @@ class Form {
 			let elemP = document.createElement("p");
 		
 			elemP.setAttribute("data-js-form-item", "errMsg");
+			elemP.classList.add("error-msg");
 			elemP.textContent = errorMsg;
 
 			elemWrapper.append(elemP);

@@ -12,12 +12,20 @@
 	box-sizing: border-box;
 }
 
-* + :is(p, hr, ul, h1, h2, h3, h4, h5, h6) {
+/* Rythme vertical */
+* + :is(p, hr, ul, h1, h2, h3, h4, h5, h6, footer) {
 	margin-top: var(--gutter);
 }
 
+main > * + * {
+	margin-top: calc(var(--gutter) * 3);
+}
+
 * + li {
-	margin-top: calc(var(--spacing-default) * 0.7); }
+	margin-top: calc(var(--gutter) * 0.7);
+}
+/**/
+
 
 img {
 	max-width: 100%;
@@ -27,11 +35,75 @@ img {
 }
 
 
+
+body {
+	padding: var(--gutter);
+}
+
+
 main {
 	width: 60%;
-	max-width: 60ch;
+	max-width: 80ch;
 
 	
+}
+
+/* Panneau liste affichée */
+
+/* Arrière-plan personnalisé selon la priorité */
+.taskPriority1 {
+	background-color: rgba(0, 58, 10, 0.11);
+}
+
+.taskPriority2 {
+	background-color: rgba(81, 90, 3, 0.11);
+}
+
+.taskPriority3 {
+	background-color: rgba(58, 0, 0, 0.11);
+}
+
+.taskEntry  {
+	padding: calc(var(--gutter) * .5);
+
+	box-shadow: 1px 1px 2px 0px black;
+}
+
+.manageTask {
+	display: flex;
+	gap: var(--gutter);
+}
+
+.manageTask > * {
+	flex-basis: calc((100% / 2) - var(--gutter));
+	flex-grow: 1;
+}
+
+.taskSummary {
+	display: block;
+}
+
+.taskSummary > * {
+	display: inline-block;
+}
+
+.taskSummary > :first-child {
+	font-weight: 700;
+}
+
+.taskSummary > :last-child {
+	margin-left: var(--gutter);
+}
+
+.change-list-order {
+	display: flex;
+	gap: var(--gutter);
+	justify-content: space-between;
+}
+
+.change-list-order > * {
+	flex-basis: calc((100% / 2) - var(--gutter));
+	flex-grow: 1;
 }
 
 .details {
@@ -70,6 +142,58 @@ main {
 .arrow-toggle:checked ~ dl {
 	max-height: 200px;
 }
+
+
+/* Éléments de formulaire */
+
+/* Pour les boutons radios */
+label > input {
+	margin-right: .5em;
+}
+
+.radioInputs {
+	display: flex;
+	gap: var(--gutter);
+	justify-content: space-between;
+}
+
+input:not([type='radio']),
+textarea,
+button {
+	padding: .3em;
+
+	font-size: 1rem;
+}
+
+input:not([type='radio']),
+textarea {
+	width: 100%;
+}
+
+textarea {
+	font-family: sans-serif;
+}
+
+.field-block {
+	display: flex;
+	gap: var(--gutter);
+}
+
+.field-block > * {
+	flex-basis: calc(100% / 2 - var(--gutter));
+
+	margin-top: var(--gutter);
+}
+
+
+/* Messages d'erreur */
+.error-msg {
+	margin-top: calc(var(--gutter) * .2);
+
+	font-size: .7em;
+	font-style: oblique;
+}
+
 
 
 

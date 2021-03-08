@@ -26,29 +26,33 @@
 		<section>
 			<h2>Ajouter une tâche</h2>
 			<form name="ajoutTache">
-				<div data-js-form-item="fieldBlock">
+				<div class="field-block">
 					<label for="inputNomTache">Nom de la tâche :</label>
 					<div data-js-form-item="inputWrapper">
 						<input type="text" id="inputNomTache" name="nomTache" placeholder="Nom de la tâche..." required>
 					</div>
 				</div>
 				
-				<div data-js-form-item="fieldBlock">
+				<div class="field-block">
 					<label for="inputDescTache">Description :</label>
 					<div data-js-form-item="inputWrapper">
-						<input type="text" id="inputDescTache" name="descTache" placeholder="Description de la tâche...">
+						<textarea id="inputDescTache" name="descTache" placeholder="">Description de la tâche...</textarea>
 					</div>
 				</div>
 		
-				<div data-js-form-item="fieldBlock">
+				<div class="field-block">
 					<span>Importance de la tâche :</span>
 					<div data-js-form-item="inputWrapper">
-						<label><input type="radio" name="importance" value="1" required>Futile</label>
-						<label><input type="radio" name="importance" value="2">Peut-être</label>
-						<label><input type="radio" name="importance" value="3">Impératif</label>
+						<div class="radioInputs">
+							<label><input type="radio" name="importance" value="1" required>Futile</label>
+							<label><input type="radio" name="importance" value="2">Peut-être</label>
+							<label><input type="radio" name="importance" value="3">Impératif</label>
+						</div>
 					</div>
 				</div>
-				<button type="button" data-js-button="addTask">Ajouter la tâche</button>
+				<footer>
+					<button type="button" data-js-button="addTask">Ajouter la tâche</button>
+				</footer>
 			</form>
 		</section>
 
@@ -57,8 +61,10 @@
 			<ul class="todoList" data-list="todo">
 			</ul>
 
-			<button type="button" data-button="orderByName">Trier par nom de tâche</button>
-			<button type="button" data-button="orderByPriority">Trier par priorité</button>
+			<footer class="change-list-order">
+				<button type="button" data-button="orderByName">Trier par nom de tâche</button>
+				<button type="button" data-button="orderByPriority">Trier par priorité</button>
+			</footer>
 		</section>
 
 		<section class="details">
