@@ -25,3 +25,45 @@ img {
 
 	object-fit: cover;
 }
+
+
+main {
+	width: 60%;
+	max-width: 60ch;
+
+	
+}
+
+
+.arrow-icon {
+	float: right;
+
+	display: block;
+	transform: rotate(90deg);
+
+	transition-property: transform;
+	transition-duration: 200ms;
+	transition-timing-function: ease-in;
+}
+
+.arrow-toggle:checked ~ .arrow-icon {
+	transform: rotate(0deg);
+}
+
+
+.arrow-icon > img {
+	width: 40px;
+}
+
+
+
+/* Utilitaires :::::::: */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+  }
