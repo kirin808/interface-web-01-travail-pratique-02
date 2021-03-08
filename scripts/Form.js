@@ -21,7 +21,7 @@ class Form {
 	}
 
 	_initialize = () => {
-		//this.form.setAttribute("novalidate", "true");
+		this.form.setAttribute("novalidate", "true");
 		this._initInputs();
 		this._initButtons();
 	}

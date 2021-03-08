@@ -53,7 +53,14 @@ class ToDoList {
 			this.removeTask(id);
 		});
 
-		elemLi.append(elemDiv, elemBtnRemove);
+		elemBtnDetails.textContent = "Afficher les détails";
+		elemBtnDetails.addEventListener("click", (e) => {
+			let id = e.target.closest("li").dataset.taskId;
+
+			this.showDetails(id);
+		});
+
+		elemLi.append(elemDiv, elemBtnRemove, elemBtnDetails);
 
 		return elemLi;
 	}
@@ -64,21 +71,45 @@ class ToDoList {
 
 	refreshList = (orderBy = "name") => {
 		this.cleanList();
-		
-		let sortedList = this.listeAFaire.sort((taskA, taskB) => {
-			console.log(`${taskA[orderBy]} :: ${taskB[orderBy]}`);
-			return taskA[orderBy] > taskB[orderBy] ?
-				1 : (taskB[orderBy] < taskA[orderBy] ?
-					-1 : 0)}),
-			frag =  document.createDocumentFragment();
-		
-		sortedList.forEach(task => {
-			let elemLi = this.buildTaskListing(task);
 
-			frag.append(elemLi);
-		});
+		let frag =  document.createDocumentFragment();
+		
+		if(this.listeAFaire.length > 0) {
+			let sortedList = this.listeAFaire.sort((taskA, taskB) => {
+				return taskA[orderBy] > taskB[orderBy] ?
+				1 : (taskB[orderBy] < taskA[orderBy] ?
+					-1 : 0)})
+				
+			
+		
+			sortedList.forEach(task => {
+				let elemLi = this.buildTaskListing(task);
+
+				frag.append(elemLi);
+			});
+		} else {
+			let elemP = document.createElement("p");
+
+			elemP.textContent = "Tous vos sidequests sont complétés";
+
+			frag.append(elemP);
+		}
 
 		this.elemListing.append(frag);
+	}
+
+	showDetails = (taskId) => {
+		let ddName = document.querySelector("[data-details='name'] > dd"),
+			ddDesc = document.querySelector("[data-details='description'] > dd"),
+			ddPriority = document.querySelector("[data-details='priority'] > dd"),
+			btnToggle = document.querySelector("[data-button='toggleDetails']"),
+			task = this.listeAFaire.find(task => task.id == taskId);
+
+		ddName.textContent = task.name;
+		ddDesc.textContent = task.description;
+		ddPriority.textContent = task.priority;
+
+		btnToggle.checked = true;		
 	}
 
 	cleanList = () => {

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title></title>
+	<title>Gestionnaire de tâches 3000 :: Laser edition</title>
 	<meta name="description" content="">
 
 	<!-- Fonts -->
@@ -32,6 +32,7 @@
 						<input type="text" id="inputNomTache" name="nomTache" placeholder="Nom de la tâche..." required>
 					</div>
 				</div>
+				
 				<div data-js-form-item="fieldBlock">
 					<label for="inputDescTache">Description :</label>
 					<div data-js-form-item="inputWrapper">
@@ -55,6 +56,9 @@
 			<h2>LA liste.</h2>
 			<ul class="todoList" data-list="todo">
 			</ul>
+
+			<button type="button" data-button="orderByName">Trier par nom de tâche</button>
+			<button type="button" data-button="orderByPriority">Trier par priorité</button>
 		</section>
 
 		<section class="details">

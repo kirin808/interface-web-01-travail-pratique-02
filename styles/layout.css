@@ -68,7 +68,7 @@ main {
 }
 
 .arrow-toggle:checked ~ dl {
-	max-height: 100px;
+	max-height: 200px;
 }
 
 
