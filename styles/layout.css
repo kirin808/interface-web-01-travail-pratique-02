@@ -34,6 +34,9 @@ main {
 	
 }
 
+.details {
+	border: 2px solid black;
+}
 
 .arrow-icon {
 	float: right;
@@ -53,6 +56,19 @@ main {
 
 .arrow-icon > img {
 	width: 40px;
+}
+
+.details > dl {
+	max-height: 0;
+	overflow: hidden;
+
+	transition-property: max-height;
+	transition-duration: 300ms;
+	transition-timing-function: ease-in;
+}
+
+.arrow-toggle:checked ~ dl {
+	max-height: 100px;
 }
 
 
