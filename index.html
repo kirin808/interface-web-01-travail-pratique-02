@@ -50,11 +50,33 @@
 		</form>
 	</section>
 
-	<section>
-		<ul class="todoList">
+	<section class="liste">
+		<ul class="todoList" data-list="todo">
 
 		</ul>
 	</section>
-	<section></section>
+	<section class="details">		
+		<header>
+			<h2>Détail de la tâche</h2>
+			<div>
+				<input type="checkbox" id="checkboxToggleDetails" data-button="toggleDetails">
+				<label for="checkboxToggleDetails"></label>
+			</div>
+		</header>
+		<dl data-list="taskDetails">
+			<div>
+				<dt></dt>
+				<dd></dd>
+			</div>
+			<div>
+				<dt></dt>
+				<dd></dd>
+			</div>
+			<div>
+				<dt></dt>
+				<dd></dd>
+			</div>
+		</dl>
+	</section>
 </body>
 </html>

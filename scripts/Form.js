@@ -18,7 +18,6 @@ class Form {
 		this.buttonAdd = elem.querySelector("[data-js-button='addTask']");
 
 		this._initialize();
-		console.log(this.inputWrappers);
 	}
 
 	_initialize = () => {
@@ -58,11 +57,10 @@ class Form {
 		return this.form.checkValidity();
 	}
 
-	throwError = (input, type = "validity") => {
+	throwError = (input, type = null) => {
 		let elemInput = input,
 			elemWrapper = elemInput.closest("[data-js-form-item=\"inputWrapper\"]");
 
-		
 		/**
 		 * 
 		 * Insérer les éléments fautifs dans un tableau afin de facilement les réinitialiser. 
@@ -84,6 +82,8 @@ class Form {
 
 		if(elemInput.validity.valueMissing) {
 			errorMsg = this.errMsgReq;
+		} else if(type = "duplicate") {
+			errorMsg = "Cette tâche existe déjà";
 		}
 
 		/**
@@ -103,29 +103,8 @@ class Form {
 		}
 	}
 
-	throwErrorDuplicateTask = () => {
-		let inputWrapper = this.form.nomTache.parentElement,
-			elemP = document.createElement("p"),
-			errorMsg = "Cette tâche existe déjà";
-		
-			if(!this.invalidWrappers.includes(elemWrapper)) {
-				this.invalidWrappers.push(elemWrapper);
-			}
-					
-			elemInput.classList.toggle("error-input");
-			elemWrapper.classList.toggle("error");
-
-		elemP.setAttribute("data-js-form-item", "errMsg");
-		elemP.textContent = errorMsg;
-
-		inputWrapper.append(elemP);
-
-		
-		
-	}
 
 	cleanErrors = () => {
-		console.log(this.invalidWrappers);
 		this.invalidWrappers.forEach((wrapper) => {
 			wrapper.querySelector("[data-js-form-item='errMsg']").remove();
 
