@@ -74,7 +74,7 @@ class ToDoList {
 			elemBtnDetails = document.createElement("button"),
 			priority = task.priority == 1 ?
 				"Futile" : ((task.priority == 2) ?
-					"Peut-être" : "Impératif");;
+					"Peut-être" : "Impératif");
 
 		elemLi.setAttribute("data-task-id", task.id);
 		elemLi.classList.add("taskEntry", `taskPriority${task.priority}`);
@@ -160,11 +160,14 @@ class ToDoList {
 			ddDesc = document.querySelector("[data-details='description'] > dd"),
 			ddPriority = document.querySelector("[data-details='priority'] > dd"),
 			btnToggle = document.querySelector("[data-button='toggleDetails']"),
-			task = this.listeAFaire.find(task => task.id == taskId);
+			task = this.listeAFaire.find(task => task.id == taskId),
+			priority = task.priority == 1 ?
+				"Futile" : ((task.priority == 2) ?
+					"Peut-être" : "Impératif");;
 
 		ddName.textContent = task.name;
 		ddDesc.textContent = task.description;
-		ddPriority.textContent = task.priority;
+		ddPriority.textContent = priority;
 
 		btnToggle.checked = true;		
 	}

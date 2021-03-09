@@ -13,7 +13,8 @@
 }
 
 /* Rythme vertical */
-* + :is(p, hr, ul, h1, h2, h3, h4, h5, h6, footer) {
+* + :is(p, hr, ul, h1, h2, h3, h4, h5, h6, footer),
+dl > * + * {
 	margin-top: var(--gutter);
 }
 
@@ -65,12 +66,8 @@ main {
 
 .taskEntry  {
 	padding: calc(var(--gutter) * .5);
-
-	box-shadow:
-		1px 1px 2px 0px hsla(0, 0%, 0%, .2),
-		-1px 1px 2px 0px hsla(0, 0%, 0%, .1);
-		
 }
+
 
 .manageTask {
 	display: flex;
@@ -109,8 +106,10 @@ main {
 	flex-grow: 1;
 }
 
+
+
 .details {
-	border: 2px solid black;
+	padding: calc(var(--gutter) * .5);
 }
 
 .arrow-icon {
@@ -133,17 +132,26 @@ main {
 	width: 40px;
 }
 
+.details > h2 {
+	margin-top: 0;
+}
+
 .details > dl {
 	max-height: 0;
 	overflow: hidden;
 
-	transition-property: max-height;
+	transition-property: max-height, margin-top;
 	transition-duration: 300ms;
 	transition-timing-function: ease-in;
 }
 
+dt {
+	font-weight: 700;
+}
+
 .arrow-toggle:checked ~ dl {
 	max-height: 200px;
+	margin-top: var(--gutter);
 }
 
 
