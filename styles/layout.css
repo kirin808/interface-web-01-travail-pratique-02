@@ -66,7 +66,10 @@ main {
 .taskEntry  {
 	padding: calc(var(--gutter) * .5);
 
-	box-shadow: 1px 1px 2px 0px black;
+	box-shadow:
+		1px 1px 2px 0px hsla(0, 0%, 0%, .2),
+		-1px 1px 2px 0px hsla(0, 0%, 0%, .1);
+		
 }
 
 .manageTask {

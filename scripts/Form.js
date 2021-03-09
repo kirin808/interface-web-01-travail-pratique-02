@@ -57,6 +57,12 @@ class Form {
 		return this.form.checkValidity();
 	}
 
+	/**
+	 * Générer et injecter les différents types d'erreur.
+	 * 
+	 * @param {Node} input Élément qui contient l'erreur
+	 * @param {String} type Type d'erreur qui doit être généré. Par défaut, gère les erreurs de validation
+	 */
 	throwError = (input, type = null) => {
 		let elemInput = input,
 			elemWrapper = elemInput.closest("[data-js-form-item=\"inputWrapper\"]");
@@ -104,7 +110,11 @@ class Form {
 		}
 	}
 
-
+	/**
+	 * 
+	 * Nettoyer toutes les erreurs avant la validation
+	 * 
+	 */
 	cleanErrors = () => {
 		this.invalidWrappers.forEach((wrapper) => {
 			wrapper.querySelector("[data-js-form-item='errMsg']").remove();

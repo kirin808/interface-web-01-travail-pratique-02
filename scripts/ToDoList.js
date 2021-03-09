@@ -46,6 +46,11 @@ class ToDoList {
 		}
 	}
 
+	/**
+	 * Supprimer la tâche de la liste principale ainsi que du DOM.
+	 * 
+	 * @param {*} taskId Id de la tâche à supprimer
+	 */
 	removeTask = (taskId) => {		
 		this.listeAFaire = this.listeAFaire.filter(task => task.id != taskId);
 
