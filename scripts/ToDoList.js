@@ -2,6 +2,8 @@ class ToDoList {
 	listeAFaire = [];
 	taskId = 0;
 	currentSorting = "name";
+	displayedId = null;
+
 	constructor (nom) {
 		this.name = nom;
 		this.elemListing = document.querySelector("[data-list='todo']");
@@ -55,6 +57,10 @@ class ToDoList {
 		this.listeAFaire = this.listeAFaire.filter(task => task.id != taskId);
 
 		this.removeTaskFromDOM(taskId);
+		
+		if(taskId == this.displayedId) {
+			this.cleanDetails();
+		}
 	}
 
 	/**
@@ -63,7 +69,6 @@ class ToDoList {
 	 * @param {object} task Objet représentant la tâche qui sera déployée
 	 * @returns Élément à insérer dans la liste
 	 */
-
 	buildTaskEntry = (task) => {
 		let elemLi = document.createElement("li"),
 			elemDiv = document.createElement("div"),
@@ -72,12 +77,10 @@ class ToDoList {
 			elemFooter = document.createElement("footer"),
 			elemBtnRemove = document.createElement("button"),
 			elemBtnDetails = document.createElement("button"),
-			priority = task.priority == 1 ?
-				"Futile" : ((task.priority == 2) ?
-					"Peut-être" : "Impératif");
+			priority = this.translatePriority(task.priority);
 
 		elemLi.setAttribute("data-task-id", task.id);
-		elemLi.classList.add("taskEntry", `taskPriority${task.priority}`);
+		elemLi.classList.add("taskEntry", `taskPriority${task.priority}`, "block-shadowy");
 		
 		elemDiv.classList.add("taskSummary");
 
@@ -161,16 +164,34 @@ class ToDoList {
 			ddPriority = document.querySelector("[data-details='priority'] > dd"),
 			btnToggle = document.querySelector("[data-button='toggleDetails']"),
 			task = this.listeAFaire.find(task => task.id == taskId),
-			priority = task.priority == 1 ?
-				"Futile" : ((task.priority == 2) ?
-					"Peut-être" : "Impératif");;
+			priority = this.translatePriority(task.priority);
 
 		ddName.textContent = task.name;
 		ddDesc.textContent = task.description;
 		ddPriority.textContent = priority;
 
+		this.displayedId = taskId;
+
 		btnToggle.checked = true;		
 	}
+
+	/**
+	 * 
+	 * Nettoyer le panneau de détails si la tâche supprimée est affichée.
+	 * 
+	 */
+	cleanDetails = () => {
+		let ddName = document.querySelector("[data-details='name'] > dd"),
+			ddDesc = document.querySelector("[data-details='description'] > dd"),
+			ddPriority = document.querySelector("[data-details='priority'] > dd");
+
+		ddName.textContent = ddPriority.textContent = ddDesc.textContent = "";
+	}
+
+	translatePriority = (priority) => 
+		priority == 1 ?
+			"Futile" : ((priority == 2) ?
+				"Peut-être" : "Impératif");
 	
 	/**
 	 * Nettoyer la liste DOM avant l'injection de la liste triée.
