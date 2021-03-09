@@ -192,6 +192,7 @@ textarea {
 
 .field-block > * {
 	flex-basis: calc(100% / 2 - var(--gutter));
+	flex-grow: 1;
 
 	margin-top: var(--gutter);
 }
